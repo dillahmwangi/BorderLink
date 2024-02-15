@@ -1,6 +1,11 @@
 import React from 'react'
 import  Layout from  "../Components/Layout"
 import { Link } from 'react-router-dom'
+import id from '../assets/id.png'
+import passport from '../assets/passport.jpg'
+import covid from '../assets/covid.png'
+import temppassport from '../assets/temppassport.png'
+
 
 const Home = () => {
   return (
@@ -16,33 +21,52 @@ const Home = () => {
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                The quick, brown fox <br className="hidden md:block" />
-                jumps over a{' '}
-                <span className="text-teal-accent-400">lazy dog</span>
+                BORDERLINK <br className="text-gray-900 " />
+                SOLUTIONS{' '}
               </h2>
               <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae.
+                Explore our  solutions to help you overcome challenges and achieve your goals. Whether it’s border clearance or currency coversion.
+                We are a team of highly skilled professionals willing to provide info related to the border and and latest news.Our mission is to provide fast, effective solutions for you.
               </p>
-              <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-  <form class="flex-1">
-    <input type="number" step="0.01" name="amount" class="w-full px-3 py-2 placeholder-gray-500 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
-  </form>
-  <select name="fromCurrency" class="w-32 px-3 py-2 placeholder-gray-500 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-    <option value="USD">USD</option>
-    <option value="EUR">EUR</option>
-    {/* <!-- Add more currencies here --> */}
-  </select>
-  <select name="toCurrency" class="w-32 px-3 py-2 placeholder-gray-500 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-    <option value="USD">USD</option>
-    <option value="EUR">EUR</option>
-    {/* <!-- Add more currencies here --> */}
-  </select>
-  <button class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">Convert</button>
-  <div class="text-2xl font-medium text-gray-800">0.00</div>
+
+  <div className='flex space-y-4 flex-col w-1/2'>
+    <div >
+  <label htmlhtmlFor="hs-inline-leading-pricing-select-label" className="block text-md font-bold mb-2 text-white">Currency Converter</label>
+  <div className="relative">
+    <input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="0.00"/>
+    <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+      <span className="text-gray-500">$</span>
+    </div>
+    <div className="absolute inset-y-0 end-0 flex items-center text-gray-500 pe-px">
+      <label htmlhtmlFor="hs-inline-leading-select-currency" className="sr-only">Currency</label>
+      <select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-lg focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-800">
+        <option>USD</option>
+        <option>CAD</option>
+        <option>EUR</option>
+      </select>
+    </div>
+  </div>
 </div>
-            </div>
+    
+ 
+
+  <div className="relative">
+    <input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="0.00"/>
+    <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+      <span className="text-gray-500">$</span>
+    </div>
+    <div className="absolute inset-y-0 end-0 flex items-center text-gray-500 pe-px">
+      <label htmlhtmlFor="hs-inline-leading-select-currency" className="sr-only">Currency</label>
+      <select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-lg focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-800">
+        <option>USD</option>
+        <option>CAD</option>
+        <option>EUR</option>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
+            
             <div className="w-full max-w-md xl:px-8 xl:w-6/12">
               <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
@@ -52,7 +76,7 @@ const Home = () => {
                  
                   <div className="mb-1 sm:mb-2">
                     <label
-                      htmlFor="lastName"
+                      htmlhtmlhtmlFor="lastName"
                       className="inline-block mb-1 font-medium"
                     >
                       UserID
@@ -68,7 +92,7 @@ const Home = () => {
                   </div>
                   <div className="mb-1 sm:mb-2">
                     <label
-                      htmlFor="email"
+                      htmlhtmlhtmlFor="email"
                       className="inline-block mb-1 font-medium"
                     >
                       Password
@@ -82,13 +106,13 @@ const Home = () => {
                       name="password"
                     />
                   </div> 
-                  <div class="flex items-center justify-between">
-            <div class="flex flex-row items-center">
-                <input type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"/>
-                <label for="comments" class="ml-2 text-sm font-normal text-gray-600">Remember me</label>
+                  <div className="flex items-center justify-between">
+            <div className="flex flex-row items-center">
+                <input type="checkbox" className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"/>
+                <label htmlhtmlFor="comments" className="ml-2 text-sm font-normal text-gray-600">Remember me</label>
             </div>
             <div>
-                <a class="text-sm text-blue-600 hover:underline" href="#">Forgot password?</a>
+                <Link className="text-sm text-blue-600 hover:underline" to="/forget">forgot password?</Link>
             </div>
         </div>
                   <div className="mt-4 mb-2 sm:mb-4">
@@ -101,7 +125,7 @@ const Home = () => {
                   </div>
                   <div className="flex justify-evenly mt-2">
                      
-                  <p class="text-center font-400">Don&rsquo;t have an account? <a class="text-blue-500 hover:underline" href="#">Sign up</a></p>
+                  <p className="text-center font-400">Don&rsquo;t have an account? <Link className="text-blue-500 hover:underline" to="/signup">Sign up</Link></p>
                     </div>
 
                 </form>
@@ -111,8 +135,13 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <div  className="font-bold text-center py-5 px-4 text-gray-900 sm:text-4xl md:mx-auto">
+      <p>
+        ABOUT US
+      </p>
+    </div>
 
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-18 lg:px-8 lg:py-18">
       <div className="grid gap-8 row-gap-5 lg:grid-cols-3">
         <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">
           <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
@@ -136,14 +165,13 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h6 className="font-semibold leading-5">The quick, brown fox</h6>
+              <h6 className="font-semibold leading-5">Upload Documentations</h6>
             </div>
             <p className="mb-2 text-sm text-gray-900">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam.
+              Upload your documents here to generate qr code for faster border clearance.
             </p>
             <Link
-              to="/"
+              to="/document"
               aria-label=""
               className="inline-flex items-center text-sm font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
@@ -151,6 +179,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        
         <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">
           <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
           <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
@@ -173,14 +202,13 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h6 className="font-semibold leading-5">Smooth as an android</h6>
+              <h6 className="font-semibold leading-5">Document Application</h6>
             </div>
             <p className="mb-2 text-sm text-gray-900">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam.
+              Apply for the necessary documents required to leave and enter the country through e-citizen.
             </p>
             <Link
-              to="/"
+              to="https://dis.ecitizen.go.ke/auth/login"
               aria-label=""
               className="inline-flex items-center text-sm font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
@@ -270,13 +298,13 @@ const Home = () => {
       </div>
       <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
         <Link
-          to="/"
+          to="https://dis.ecitizen.go.ke/auth/login"
           aria-label="View Item"
           className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
         >
           <div className="flex flex-col h-full">
             <img
-              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src={passport}
               className="object-cover w-full h-48"
               alt=""
             />
@@ -294,13 +322,13 @@ const Home = () => {
           </div>
         </Link>
         <Link
-          to="/"
+          to="https://dis.ecitizen.go.ke/auth/login"
           aria-label="View Item"
           className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
         >
           <div className="flex flex-col h-full">
             <img
-              src="https://images.pexels.com/photos/3182750/pexels-photo-3182750.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src={id}
               className="object-cover w-full h-48"
               alt=""
             />
@@ -324,7 +352,7 @@ const Home = () => {
         >
           <div className="flex flex-col h-full">
             <img
-              src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src={temppassport}
               className="object-cover w-full h-48"
               alt=""
             />
@@ -346,101 +374,7 @@ const Home = () => {
         >
           <div className="flex flex-col h-full">
             <img
-              src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Baseball ipsum dolor
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Bro ipsum dolor sit amet gaper backside single track, manny
-                  Bike epic clipless. Schraeder drop gondy.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link
-          to="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  The doctor said
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Sportacus andrew weatherall goose Refined gentlemen super
-                  mario des lynam alpha trion zap rowsdower.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link
-          to="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Skate ipsum dolor
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link
-          to="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">They urge you</h6>
-                <p className="text-sm text-gray-900">
-                  A flower in my garden, a mystery in my panties. Heart attack
-                  never stopped old Big Bear.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link
-          to="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src={covid}
               className="object-cover w-full h-48"
               alt=""
             />

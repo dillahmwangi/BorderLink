@@ -52,7 +52,7 @@ import { Link } from 'react-router-dom';
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/about"
                     aria-label="Our product"
                     title="Our product"
                     className="font-medium tracking-wide text-gray-100 hover:text-gray-500 transition-colors duration-200 hover:text-teal-accent-400"
@@ -72,12 +72,12 @@ import { Link } from 'react-router-dom';
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="document"
                     aria-label="About us"
                     title="About us"
                     className="font-medium tracking-wide text-gray-100 hover:text-gray-500 transition-colors duration-200 hover:text-teal-accent-400"
                   >
-                    Templates
+                    Document
                   </Link>
                 </li>
               </ul>
@@ -99,7 +99,7 @@ import { Link } from 'react-router-dom';
                 </li>
                 <li>
                   <Link
-                    to="/login"
+                    to="/signup"
                     className="inline-flex items-center justify-center h-9 px-3 font-bold tracking-wide transition duration-200 rounded shadow-md bg-white  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
                     aria-label="Sign up"
                     title="Sign up"

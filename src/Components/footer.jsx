@@ -170,7 +170,7 @@ const Footer = () => {
                   to="/"
                   className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
                 >
-                  Forum
+                  forum
                 </Link>
               </li>
             </ul>
