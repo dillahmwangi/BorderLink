@@ -6,7 +6,7 @@ const Chat = () => {
   return (
     <Layout>
   {/* <!-- component --> */}
-<div className="relative flex w-full h-screen overflow-hidden antialiased bg-gray-200">
+<div className="relative flex w-full h-screen overflow-hidden antialiased bg-gray-200 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       {/* <!-- left --> */}
       <div className="relative flex flex-colh-full bg-white border-r border-gray-300 shadow-xl md:block transform transition-all duration-500 ease-in-out" style={{width: "24rem"}}>
         <div className="flex justify-between px-3 pt-1 text-white">
