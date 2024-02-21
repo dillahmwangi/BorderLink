@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../Components/Layout'
+import { Icon } from '@iconify/react'
+import Form from './form';
+import { Link } from 'react-router-dom';
 
 const Document = () => {
+  const [openForm, setOpenForm] = useState(false);
   return (
   <Layout>
-<div className="flex items-center justify-center p-12">
+    {openForm ? (
+          <Form setOpenForm={setOpenForm} openForm={openForm} />
+      ) : null}
+{/* <div className="flex items-center justify-center p-12">
 
   <div className="mx-auto w-full max-w-[550px] bg-white">
     <form
@@ -12,22 +19,6 @@ const Document = () => {
       action="https://formbold.com/s/forM_ID"
       method="POST"
     >
-      <div className="mb-5">
-        <label
-          htmlhtmlFor="email"
-          className="mb-3 block text-base font-medium text-[#07074D]"
-        >
-          Send files to this email:
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="example@domain.com"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-        />
-      </div>
-
       <div className="mb-6 pt-4">
         <label className="mb-5 block text-xl font-semibold text-[#07074D]">
           Upload File
@@ -36,7 +27,7 @@ const Document = () => {
         <div className="mb-8">
           <input type="file" name="file" id="file" className="sr-only" />
           <label
-            htmlhtmlFor="file"
+            htmlFor="file"
             className="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
           >
             <div>
@@ -130,7 +121,148 @@ const Document = () => {
       </div>
     </form>
   </div>
-</div>
+</div> */}
+<div className="w-full px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+
+	<div className="relative overflow-x-auto shadow-md sm:rounded-lg pb-4">
+    <div className='flex justify-between'>
+    <Link onClick={()=> setOpenForm(true)}
+                    to=""
+                    className="inline-flex items-center text-white m-6 justify-center h-9 p-4 font-bold tracking-wide transition duration-200 rounded shadow-md bg-gray-900  hover:bg-gray-700 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign up"
+                    title="Sign up"
+                  >
+                    ADD
+   </Link>
+      
+    <div className="p-4 mt-6">
+			<label for="table-search" className="sr-only">Search</label>
+			<div className="relative mt-1">
+				<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+					<svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+							clip-rule="evenodd"></path>
+					</svg>
+				</div>
+				<input type="text" id="table-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items"/>
+        </div>
+			</div>
+    </div>
+		
+			<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+				<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+					<tr>
+						<th scope="col" className="p-4">
+						
+						</th>
+						<th scope="col" className="px-6 py-3">
+							Document name
+						</th>
+						<th scope="col" className="px-6 py-3">
+            Date
+						</th>
+						<th scope="col" className="px-6 py-3">
+							
+              Size
+						</th>
+						<th scope="col" className="px-6 py-3">
+							Type
+						</th>
+						<th scope="col" className="px-6 py-3">
+							<span className="sr-only">Edit</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+						<td className="w-4 p-4">
+							<div className="flex items-center">
+								<input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+								<label for="checkbox-table-search-1" className="sr-only">checkbox</label>
+							</div>
+						</td>
+						<th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+							Apple MacBook Pro 17"
+						</th>
+						<td className="px-6 py-4">
+							Sliver
+						</td>
+						<td className="px-6 py-4">
+							Laptop
+						</td>
+						<td className="px-6 py-4">
+							$2999
+						</td>
+						<td className="px-6 py-4 text-right flex">
+							<Icon icon="fa-solid:edit" width={24} height={24}className='text-gray-900 mx-2'/>
+              <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
+              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>						</td>
+					</tr>
+					<tr
+						className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+						<td className="w-4 p-4">
+							<div className="flex items-center">
+								<input id="checkbox-table-search-2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+								<label for="checkbox-table-search-2" className="sr-only">checkbox</label>
+							</div>
+						</td>
+						<th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+							Microsoft Surface Pro
+						</th>
+						<td className="px-6 py-4">
+							White
+						</td>
+						<td className="px-6 py-4">
+							Laptop PC
+						</td>
+						<td className="px-6 py-4">
+							$1999
+						</td>
+						<td className="px-6 py-4 text-right flex">
+							<Icon icon="fa-solid:edit"width={24} height={24} className='text-gray-900 mx-2'/>
+              <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
+              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>						</td>
+					</tr>
+					<tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+						<td className="w-4 p-4">
+							<div className="flex items-center">
+								<input id="checkbox-table-search-3" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+								<label for="checkbox-table-search-3" className="sr-only">checkbox</label>
+							</div>
+						</td>
+						<th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+							Magic Mouse 2
+						</th>
+						<td className="px-6 py-4">
+							Black
+						</td>
+						<td className="px-6 py-4">
+							Accessories
+						</td>
+						<td className="px-6 py-4">
+							$99
+						</td>
+						<td className="px-6 py-4 text-right flex">
+							<Icon icon="fa-solid:edit" width={24} height={24} className='text-gray-900 mx-2 hover:text-gray-700'/>
+              <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
+              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+	</div>
+  <div className="text-center p-6">
+        <Link
+          to="/info-hub"
+          className="inline-flex items-center justify-center  w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none"
+        >
+          Generate QR Code
+        </Link>
+      </div>
 </Layout>
   )
 }
