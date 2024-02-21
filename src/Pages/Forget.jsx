@@ -11,6 +11,7 @@ const forget = () => {
 
   const [selected,  setSelected] = useState(options[0].value);
 
+
   const handleChange = event =>{
     console.log(event.target.value);
     setSelected(event.target.value);
@@ -47,6 +48,13 @@ const forget = () => {
         ))}
         
     </select>
+    <div className="max-w-2xl mx-auto pt-4">
+      
+            <input type={selected==="email"?'email':'hidden'} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter Email Address'/>
+     
+            <input type={selected==="phone"?'text':'hidden'}  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter Phone Number'/>
+        </div>
+
 
 </div>
                 </div>
