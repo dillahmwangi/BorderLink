@@ -8,6 +8,8 @@ import Forget from './Pages/Forget'
 import Document from './Pages/Document'
 import Otp from './Pages/Otp'
 import Signup from './Pages/Signup'
+import Newpass from './Pages/Newpass'
+import Createprof from './Pages/Createprof'
 
 
 
@@ -23,6 +25,8 @@ const App = () => {
     <Route path='/forget'element= {<Forget/>} />
     <Route path='/document'element={<Document/>}/>
     <Route path='/otp'element={<Otp/>}/>
+    <Route path='/newpass'element={<Newpass/>}/>
+    <Route path='/createprofile'element={<Createprof/>}/>
   </Routes>
  
  
