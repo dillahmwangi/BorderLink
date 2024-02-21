@@ -1,51 +1,248 @@
 import React from 'react'
 import Layout from '../Components/Layout'
+import img from '../assets/img.jpg'
+import image from '../assets/image.webp'
+
 
 
 const Infohub = () => {
   return (
     <Layout>
-<p>In an information hub for Border Connect, various elements can be displayed to provide users with comprehensive information about the company, its services, policies, and resources. Here are some key components that can be included:
+<section className="mt-12">
+        <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
+          <div>
+            <h2 className="text-3xl font-bold text-center sm:text-5xl ">
+              About us
+            </h2>
+            <p className="max-w-3xl mx-auto mt-4 text-base text-center text-gray-400">
+            Welcome to BorderLink Solutions, your trusted partner in border management and facilitation. At BorderLink Solutions, 
+            we are committed to revolutionizing the way borders are managed, ensuring seamless connectivity and efficiency 
+            for businesses, travelers, and government agencies alike.
 
-About Border Connect:
+            Our solution is designed to improve efficiency and speed in cross-border operations. We help businesses expedite customs clearance, 
+            minimize wait times, and enhance the flow of goods and people across borders, enabling faster and smoother transactions.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-center sm:text-5xl ">
+              Our Mission
+            </h2>
+            <p className="max-w-3xl mx-auto mt-4 text-base text-center text-gray-400">
+            Our mission is to simplify cross-border trade, streamline immigration processes, 
+            and enhance security measures to foster economic growth, promote global connectivity, 
+            and ensure the safety and security of our communities.
+            </p>
+          </div>
+          <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h3 className="text-2xl font-bold tracki sm:text-3xl ">
+                What we do:
+              </h3>
 
-Overview of the company's history, mission, vision, and values.
-Information about the founding team, leadership, and organizational structure.
-Milestones, achievements, and recognition received by Border Connect.
-Services Offered:
+              <div className="mt-12 space-y-12">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-7 h-7">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-lg font-medium leadi ">
+                      Expert Guidance
+                    </h4>
+                    <p className="mt-2 text-gray-400">
+                    We provide cutting-edge technology and innovative solutions to optimize border operations,
+                     reduce wait times, and enhance the flow of goods and people across borders.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-7 h-7">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-lg font-medium leadi ">
+                    Immigration Assistance
+                    </h4>
+                    <p className="mt-2 text-gray-400">
+                    We offer immigration assistance services to travelers, expatriates, 
+                    and immigrants, ensuring smooth entry and exit processes, visa applications,
+                    and compliance with immigration policies.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-7 h-7">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-lg font-medium leadi ">
+                      Customer-Centric Approach
+                    </h4>
+                    <p className="mt-2 text-gray-400">
+                      Your satisfaction is our priority. We take pride in
+                      delivering exceptional service and support.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" className="mt-10 lg:mt-0">
+              <img
+                src={img}
+                alt="onlineinsurance"
+                className="mx-auto rounded-lg shadow-lg bg-gray-800 bg-opacity-75"
+              />
+            </div>
+          </div>
+          <div>
+            <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
+              <div className="lg:col-start-2">
+                <h3 className="text-2xl font-bold tracki sm:text-3xl ">
+                  Innovation
+                </h3>
+                <p className="mt-3 text-lg text-gray-400">
+                  We embrace the latest technologies to streamline processes and
+                  your cross border activities much easier.
+                </p>
+                
+                <div className="mt-12 space-y-12">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leadi ">
+                        Trustworthy Partners{' '}
+                      </h4>
+                      <p className="mt-2 text-gray-400">
+                        We work with reputable insurance providers to ensure you
+                        get the coverage you can rely on.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leadi ">
+                        Claims Excellence:
+                      </h4>
+                      <p className="mt-2 text-gray-400">
+                        When you need us most, we`re there. Our claims experts
+                        are dedicated to helping you navigate the process
+                        smoothly and efficiently, ensuring you get the support
+                        you deserve.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-md bg-gray-800 text-[#BFCFFF]">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-7 h-7">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-medium leadi ">
+                        Community Engagement
+                      </h4>
+                      <p className="mt-2 text-gray-400">
+                        We`re not just your insurance agency; we`re your
+                        neighbors. Chayil Insurance takes pride in giving back
+                        to the communities we serve, making a positive impact
+                        beyond insurance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
+                <img
+                  src={image}
+                  alt=""
+                  className="mx-auto rounded-lg shadow-lg bg-gray-500"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-Detailed descriptions of the services provided by Border Connect, such as customs brokerage, logistics solutions, trade compliance, and consulting services.
-Features, benefits, and value propositions of each service offering.
-Case studies or success stories highlighting real-world applications and outcomes.
-Policies and Procedures:
-
-Clear explanations of Border Connect's policies and procedures related to customs regulations, trade compliance, data security, and client confidentiality.
-Guidelines for users to understand and adhere to relevant regulations and requirements.
-Information about quality standards, certifications, and accreditations obtained by Border Connect.
-Resources and Tools:
-
-Repository of resources to support users in navigating customs processes, trade regulations, and industry best practices.
-User guides, FAQs, glossaries, and tutorials to help users understand complex topics and procedures.
-Interactive tools, calculators, and templates for estimating costs, calculating duties, and generating trade documents.
-News and Updates:
-
-Section for news articles, blog posts, press releases, and company announcements.
-Updates on regulatory changes, industry trends, and market insights relevant to Border Connect's clients and stakeholders.
-Events calendar highlighting industry conferences, trade shows, and networking opportunities.
-Client Testimonials:
-
-Testimonials and feedback from satisfied clients and partners highlighting their experiences with Border Connect's services.
-Case studies or client success stories showcasing the impact of Border Connect's solutions on businesses and operations.
-Contact Information:
-
-Contact details for Border Connect's customer support team, including phone numbers, email addresses, and office locations.
-Online contact form or chat support option for users to submit inquiries, feedback, and support requests.
-Hours of operation, response times, and emergency contact information for urgent assistance.
-Partnerships and Affiliations:
-
-Information about strategic partnerships, alliances, and affiliations that Border Connect has established with other organizations, industry associations, and government agencies.
-Collaborative initiatives, joint ventures, and co-branding opportunities with key stakeholders in the supply chain and logistics ecosystem.
-By providing comprehensive information and resources in the information hub, Border Connect can enhance transparency, trust, and engagement with clients, partners, and stakeholders, thereby strengthening its position as a trusted advisor and service provider in the global trade community.</p>
         </Layout>
   )
 }
