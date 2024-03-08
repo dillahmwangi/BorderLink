@@ -5,14 +5,42 @@ import id from '../assets/id.png'
 import passport from '../assets/passport.jpg'
 import covid from '../assets/covid.png'
 import temppassport from '../assets/temppassport.png'
+import bgimg from '../assets/bgimg.jpg'
+import toast from 'react-hot-toast'
+import { useAuth } from '../hooks/useAuth'
+import { useState } from 'react'
 
 
 const Home = () => {
+  const [form,setForm] = useState({
+    userName:"",
+    password:""
+   
+  })
+  const{processing,signIn} = useAuth()
+  
+  //     // In a real-world scenario, you'd want to redirect the user to another page after sign-up
+  //     // You can use the "react-router-dom" library to handle navigation
+  //   };
+  const onChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+  console.log("its working")
+    signIn(form)
+      .then(()=>{
+        setTimeout(()=>{
+          window.location.href = "/document"
+        },3000)
+      })
+      .catch(error=>toast.error(error.error))
+    }
   return (
     <Layout>
       <div className="relative">
       <img
-        src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+       src={bgimg}
         className="absolute inset-0 object-cover w-full h-full"
         alt=""
       />
@@ -73,7 +101,7 @@ const Home = () => {
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                  SIGN IN
                 </h3>
-                <form>
+                <form onSubmit={handleSubmit}>
                  
                   <div className="mb-1 sm:mb-2">
                     <label
@@ -88,7 +116,9 @@ const Home = () => {
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="userId"
-                      name="id"
+                      name="userName"
+                      value={form.userName}
+                       onChange={onChange}
                     />
                   </div>
                   <div className="mb-1 sm:mb-2">
@@ -105,6 +135,8 @@ const Home = () => {
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="password"
                       name="password"
+                      value={form.password}
+                      onChange={onChange}
                     />
                   </div> 
                   <div className="flex items-center justify-between">
@@ -118,6 +150,7 @@ const Home = () => {
         </div>
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
+                    loading={processing}
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-900 hover:bg-gray-800 focus:shadow-outline focus:outline-none"
                     >
@@ -428,7 +461,7 @@ const Home = () => {
                     name="name"
                     type="text"
                     placeholder="Enter Your Name"
-                    class="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                    class="py-2 px-4 md:px-5 w-full appearance-none border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
                     autoComplete="off"
                     spellCheck="false"
                     aria-invalid="false"
@@ -446,7 +479,7 @@ const Home = () => {
                     name="email"
                     type="email"
                     placeholder="Enter Your Email"
-                    class="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                    class="py-2 px-4 md:px-5 w-full appearance-none  border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
                     autoComplete="off"
                     spellCheck="false"
                     aria-invalid="false"
@@ -465,7 +498,7 @@ const Home = () => {
                   name="subject"
                   type="text"
                   placeholder="Enter Your Subject"
-                  class="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                  class="py-2 px-4 md:px-5 w-full appearance-none border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
                   autoComplete="off"
                   spellCheck="false"
                   aria-invalid="false"
@@ -481,7 +514,7 @@ const Home = () => {
                 <textarea
                   id="message"
                   name="message"
-                  class="px-4 py-3 flex items-center w-full appearance-none transition duration-300 ease-in-out text-heading text-sm focus:outline-none focus:ring-0 bg-white border border-gray-300 focus:shadow focus:outline-none focus:border-heading placeholder-body"
+                  class="px-4 py-3 flex items-center w-full appearance-none transition duration-300 ease-in-out text-heading text-sm  focus:ring-0 bg-white border border-gray-300 focus:shadow focus:outline-none focus:border-heading placeholder-body"
                   autoComplete="off"
                   spellCheck="false"
                   rows={4}
