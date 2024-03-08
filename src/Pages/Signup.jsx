@@ -1,11 +1,45 @@
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import { useAuth } from '../hooks/useAuth'
 
 
 const Signup = () => {
+const [form,setForm] = useState({
+  userName:"",
+  idNo: "",
+  email:"",
+  country:"",
+  phone: "",
+  password:"",
+  confirmPassword:""
+})
+const{processing,signUp} = useAuth()
+
+//     // In a real-world scenario, you'd want to redirect the user to another page after sign-up
+//     // You can use the "react-router-dom" library to handle navigation
+//   };
+const onChange = (e) => {
+  setForm({ ...form, [e.target.name]: e.target.value });
+};
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if(form.password !==form.confirmPassword){
+    toast.error("Passwords do not match")
+  }
+console.log("its working")
+  signUp(form)
+    .then(()=>{
+      setTimeout(()=>{
+        window.location.href = "/"
+      },3000)
+    })
+    .catch(error=>toast.error(error.error))
+
+}
 
   return (
-
 
     <section className="bg-Gray-500">
      <div className="w-full max-w-3xl mx-auto py-4 px-4  xl:px-8 xl:w-6/12">  
@@ -13,7 +47,8 @@ const Signup = () => {
       <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
        REGISTER
       </h3>
-      <form>
+      <form   onSubmit={handleSubmit}
+ >
        
         <div className="mb-1 sm:mb-2">
           <label
@@ -27,14 +62,17 @@ const Signup = () => {
             required
             type="text"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="userId"
-            name="id"
+            id="userName"
+            name="userName"
+            value={form.userName}
+            onChange={onChange}
+          
     
           />
         </div>
         <div className="mb-1 sm:mb-2">
           <label
-            htmlFor="email"
+            htmlFor="userId"
             className="inline-block mb-1 font-medium"
           >
             ID No
@@ -42,10 +80,13 @@ const Signup = () => {
           <input
             placeholder="Enter your id number"
             required
-            type="password"
+            type="number"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
+            id="userId"
+            name="idNo"
+            value={form.idNo}
+            onChange={onChange}
+           
           />
         </div> 
         <div className="mb-1 sm:mb-2">
@@ -58,16 +99,19 @@ const Signup = () => {
           <input
             placeholder="Enter your Email Address"
             required
-            type="password"
+            type="email"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
+            id="email"
+            name="email"
+            value={form.email}
+            onChange={onChange}
+           
           />
         </div> 
 
         <div className="mb-1 sm:mb-2">
           <label
-            htmlFor="email"
+            htmlFor="phone"
             className="inline-block mb-1 font-medium"
           >
             Phone Number
@@ -75,32 +119,38 @@ const Signup = () => {
           <input
             placeholder="Enter your Phone Number"
             required
-            type="password"
+            type="text"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
+            id="phone"
+            name="phone"
+            value={form.phone}
+            onChange={onChange}
+           
           />
         </div> 
         <div className="mb-1 sm:mb-2">
           <label
-            htmlFor="email"
+            htmlFor="country"
             className="inline-block mb-1 font-medium"
           >
             Country
           </label>
           <input
-            placeholder="Enter your Phone Number"
+            placeholder="Enter your country"
             required
-            type="password"
+            type="text"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
+            id="country"
+            name="country"
+            value={form.country}
+            onChange={onChange}
+           
           />
         </div>
         <div className='flex justify-between space-x-4'>
         <div className="mb-1 sm:mb-2">
           <label
-            htmlFor="email"
+            htmlFor="password"
             className="inline-block mb-1 font-medium"
           >
            Password
@@ -110,38 +160,47 @@ const Signup = () => {
             required
             type="password"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
+
             name="password"
+            value={form.password}
+            onChange={onChange}
+          
           />
         </div>
         <div className="mb-1 sm:mb-2">
           <label
-            htmlFor="email"
+            htmlFor="password"
             className="inline-block mb-1 font-medium"
           >
             Confirm Password
           </label>
           <input
-            placeholder="Enter your profile"
+            placeholder="Reenter  your password"
             required
             type="password"
             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
+            
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={onChange}
+    
           />
         </div>
         </div>
         <div className="mt-4 mb-2 sm:mb-4">
-          <Link
-          to={'/createprofile'}>
-          <button
           
-            type="submit"
+          <button
+            loading={processing}
+            type="submit" 
             className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-900 hover:bg-gray-800 focus:shadow-outline focus:outline-none"
           >
             SIGN UP
           </button>
-          </Link>
+        
+          <div className="flex justify-evenly mt-2">
+                     
+                     <p className="text-center font-400">Already have an account? <Link className="text-blue-500 hover:underline" to="/">Sign In</Link></p>
+                       </div>
         </div>
      
 
@@ -150,6 +209,7 @@ const Signup = () => {
   </div>
   
     </section>
+
   )
 }
 
