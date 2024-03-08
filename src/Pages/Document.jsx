@@ -197,9 +197,11 @@ const Document = () => {
 							$2999
 						</td>
 						<td className="px-6 py-4 text-right flex">
+            <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>
 							<Icon icon="fa-solid:edit" width={24} height={24}className='text-gray-900 mx-2'/>
               <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
-              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>						</td>
+              					
+              	</td>
 					</tr>
 					<tr
 						className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -222,9 +224,11 @@ const Document = () => {
 							$1999
 						</td>
 						<td className="px-6 py-4 text-right flex">
+            <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>	
 							<Icon icon="fa-solid:edit"width={24} height={24} className='text-gray-900 mx-2'/>
               <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
-              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>						</td>
+              
+              					</td>
 					</tr>
 					<tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 						<td className="w-4 p-4">
@@ -246,9 +250,10 @@ const Document = () => {
 							$99
 						</td>
 						<td className="px-6 py-4 text-right flex">
+            <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>
 							<Icon icon="fa-solid:edit" width={24} height={24} className='text-gray-900 mx-2 hover:text-gray-700'/>
               <Icon icon="mingcute:delete-2-fill"width={24} height={24} className='text-gray-900'/>
-              <Icon icon="ion:eye"width={24} height={24} className='text-gray-900'/>
+             
 						</td>
 					</tr>
 				</tbody>
