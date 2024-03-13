@@ -417,7 +417,7 @@ const Chat = () => {
           <div class="text-xs text-gray-500">Lead UI/UX Designer</div>
           <div class="flex flex-row items-center mt-3">
             <div
-              class="flex flex-col justify-center h-4 w-8 bg-indigo-500 rounded-full"
+              class="flex flex-col justify-center h-4 w-8 bg-gray-900 rounded-full"
             >
               <div class="h-3 w-3 bg-white rounded-full self-end mr-1"></div>
             </div>
@@ -786,5 +786,6 @@ const Chat = () => {
     </Layout>
   )
 }
+
  
 export default Chat
