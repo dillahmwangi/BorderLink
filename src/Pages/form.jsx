@@ -5,8 +5,9 @@ import toast from 'react-hot-toast';
 const Form = ({setOpenForm, openForm}) => {
     const {post,get,processing} = useCURD()
     const [formData, setFormData] = useState({
-             fileName: "",
-              document: null 
+             name: "",
+              documentImage: null,
+              user:"" 
             });
       
         const onChange = (e) =>
@@ -19,22 +20,22 @@ const Form = ({setOpenForm, openForm}) => {
             const file = event.target.files[0]; // Get the first file from the array of selected files
             setFormData((prev)=>({
                 ...prev,
-                document: file
+                documentImage: file
             }));
           };
     
         const handleSubmit = (e) => {
             e.preventDefault();
         
-            if (!formData.fileName || !formData.document) {
-               toast.error("file and filename are required");
+            if (!formData.name || !formData.documentImage) {
+               toast.error("file and name are required");
               return;
             }
             const payload = new FormData()
-            payload.append("fileName",formData.fileName)
-            payload.append("document",formData.document)
+            payload.append("name",formData.name)
+            payload.append("documentImage",formData.documentImage)
 
-            post("/doc/upload", payload)
+            post("/doc", payload)
             .then((res)=>{
                 console.log("done",res)
 
@@ -53,7 +54,7 @@ const Form = ({setOpenForm, openForm}) => {
                                 absolute"> Document Name</p>
                             <input placeholder="John" type="text" className="border placeholder-gray-400 focus:outline-none
                                 focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
-                                border-gray-300 rounded-md" name='fileName' value={formData.fileName} onChange={onChange}/>
+                                border-gray-300 rounded-md" name='name' value={formData.name} onChange={onChange}/>
                         </div>
 
                         <div className="relative">
