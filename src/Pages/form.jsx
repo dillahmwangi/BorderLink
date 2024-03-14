@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import useCURD from '../hooks/useCRUD';
 import toast from 'react-hot-toast';
+import useAPI from '../hooks/useAPI';
+
 
 const Form = ({setOpenForm, openForm}) => {
-    const {post,get,processing} = useCURD()
+    const [ {refetch}] = useAPI()
+    const {post,processing} = useCURD()
     const [formData, setFormData] = useState({
              name: "",
               documentImage: null,
-              user:"" 
+              user:"65e67fa03291b74f8144d35c" 
             });
       
         const onChange = (e) =>
@@ -26,18 +29,23 @@ const Form = ({setOpenForm, openForm}) => {
     
         const handleSubmit = (e) => {
             e.preventDefault();
+
+            
         
-            if (!formData.name || !formData.documentImage) {
+            if (!formData.name || !formData.documentImage ) {
                toast.error("file and name are required");
               return;
             }
             const payload = new FormData()
             payload.append("name",formData.name)
             payload.append("documentImage",formData.documentImage)
+            payload.append('user', formData.user)
 
             post("/doc", payload)
             .then((res)=>{
-                console.log("done",res)
+                toast.success("Document added successfully");
+                setOpenForm(false);
+                refetch()
 
             })
             .catch(error=>toast.error(error.error))
