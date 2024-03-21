@@ -8,9 +8,7 @@ import { QRCodeSVG } from 'qrcode.react'
 
 const Document = () => {
   const [openForm, setOpenForm] = useState(false)
-  const [docs, { refetch }] = useAPI(
-    '/doc/documents/user/65e67fa03291b74f8144d35c'
-  )
+  const [docs] = useAPI('/doc/documents/user/65e67fa03291b74f8144d35c')
   return (
     <Layout>
       {openForm ? <Form setOpenForm={setOpenForm} openForm={openForm} /> : null}
@@ -27,7 +25,7 @@ const Document = () => {
             </Link>
 
             <div className="p-4 mt-6">
-              <label for="table-search" className="sr-only">
+              <label htmlFor="table-search" className="sr-only">
                 Search
               </label>
               <div className="relative mt-1">
@@ -38,9 +36,9 @@ const Document = () => {
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"></path>
+                      clipRule="evenodd"></path>
                   </svg>
                 </div>
                 <input
@@ -86,7 +84,9 @@ const Document = () => {
                         type="checkbox"
                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
-                      <label for="checkbox-table-search-1" className="sr-only">
+                      <label
+                        htmlFor="checkbox-table-search-1"
+                        className="sr-only">
                         checkbox
                       </label>
                     </div>
