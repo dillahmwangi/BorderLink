@@ -1,5 +1,4 @@
-import React from 'react'
-import { BrowserRouter,Routes,Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import Chat from './Pages/Chat'
 import Infohub from './Pages/Infohub'
@@ -10,27 +9,25 @@ import Otp from './Pages/Otp'
 import Signup from './Pages/Signup'
 import Newpass from './Pages/Newpass'
 import Createprof from './Pages/Createprof'
-
-
+import News from './Pages/News'
 
 const App = () => {
   return (
-  <BrowserRouter>
-  <Routes>
-    <Route  path="/" element={<Home/>}/>
-    <Route path='/signup'element= {<Signup/>} />
-    <Route path='/chat'element={<Chat/>}/>
-    <Route path='/info-hub'element={<Infohub/>}/>
-    <Route path='/profile'element={<Profile/>}/>
-    <Route path='/forget'element= {<Forget/>} />
-    <Route path='/document'element={<Document/>}/>
-    <Route path='/otp'element={<Otp/>}/>
-    <Route path='/newpass'element={<Newpass/>}/>
-    <Route path='/createprofile'element={<Createprof/>}/>
-  </Routes>
- 
- 
-  </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/info-hub" element={<Infohub />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/forget" element={<Forget />} />
+        <Route path="/document" element={<Document />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/newpass" element={<Newpass />} />
+        <Route path="/createprofile" element={<Createprof />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
