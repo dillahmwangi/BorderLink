@@ -1,3 +1,4 @@
+import React from 'react'
 import Layout from '../Components/Layout'
 import { Link } from 'react-router-dom'
 import id from '../assets/id.png'
@@ -67,11 +68,11 @@ const Home = () => {
                     </label>
                     <div className="relative">
                       <input
-                        type="text"
+                        type="number"
                         id="hs-inline-leading-pricing-select-label"
                         name="inline-add-on"
                         className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        placeholder="0.00"
+                        placeholder="From"
                       />
                       <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                         <span className="text-gray-500">$</span>
@@ -96,11 +97,11 @@ const Home = () => {
 
                   <div className="relative">
                     <input
-                      type="text"
+                      type="number"
                       id="hs-inline-leading-pricing-select-label"
                       name="inline-add-on"
                       className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                      placeholder="0.00"
+                      placeholder="To"
                     />
                     <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                       <span className="text-gray-500">$</span>
@@ -311,16 +312,14 @@ const Home = () => {
                     />
                   </svg>
                 </div>
-                <h6 className="font-semibold leading-5">
-                  This is about justice
-                </h6>
+                <h6 className="font-semibold leading-5">Chat In community</h6>
               </div>
               <p className="mb-2 text-sm text-gray-900">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam.
+                Get Involved with people of similar interests by joining our
+                online community in chat section.
               </p>
               <Link
-                to="/"
+                to="/Chat"
                 aria-label=""
                 className="inline-flex items-center text-sm font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
                 Learn more
@@ -334,7 +333,7 @@ const Home = () => {
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-              Brand new
+              Document Preview
             </p>
           </div>
           <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
@@ -359,13 +358,12 @@ const Home = () => {
                   height="24"
                 />
               </svg>
-              <span className="relative">The</span>
             </span>{' '}
-            quick, brown fox jumps over a lazy dog
+            Preview some of the Required Documents here.
           </h2>
           <p className="text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae.
+            This is a place holder for document preview, you can upload your own
+            documents to see how they look in Documents.
           </p>
         </div>
         <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
@@ -388,6 +386,7 @@ const Home = () => {
               </div>
             </div>
           </Link>
+
           <Link
             to="https://dis.ecitizen.go.ke/auth/login"
             aria-label="View Item"
