@@ -1,14 +1,14 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import Layout from '../Components/Layout'
 import { Link } from 'react-router-dom'
-import id from '../assets/id.png'
+import toast from 'react-hot-toast'
+import { useAuth } from '../hooks/useAuth'
+import useCURD from '../hooks/useCRUD'
+import bgimg from '../assets/bgimg.jpg'
 import passport from '../assets/passport.jpg'
 import covid from '../assets/covid.png'
 import temppassport from '../assets/temppassport.png'
-import bgimg from '../assets/bgimg.jpg'
-import toast from 'react-hot-toast'
-import { useAuth } from '../hooks/useAuth'
-import { useState } from 'react'
+import id from '../assets/id.png'
 
 const Home = () => {
   const [form, setForm] = useState({
@@ -16,16 +16,18 @@ const Home = () => {
     password: '',
   })
   const { processing, signIn } = useAuth()
+  const { post } = useCURD()
+  const [from, setFrom] = useState('1')
+  const [to, setTo] = useState('')
+  const [fromSelect, setFromSelect] = useState('USD')
+  const [toSelect, setToSelect] = useState('EUR')
 
-  //     // In a real-world scenario, you'd want to redirect the user to another page after sign-up
-  //     // You can use the "react-router-dom" library to handle navigation
-  //   };
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('its working')
     signIn(form)
       .then(() => {
         setTimeout(() => {
@@ -34,7 +36,27 @@ const Home = () => {
       })
       .catch((error) => toast.error(error.error))
   }
-    
+
+  useEffect(() => {
+    post('/currency', { to: toSelect, from: fromSelect })
+      .then((res) => {
+        const conversionRate = res.message.data[toSelect]
+        const convertedValue = conversionRate * from
+        setTo(convertedValue)
+      })
+      .catch((err) => toast.error(err))
+  }, [toSelect, fromSelect, from])
+
+  const options = [
+    { key: 'EUR', value: 'EUR' },
+    { key: 'USD', value: 'USD' },
+    { key: 'JPY', value: 'JPY' },
+    { key: 'BGN', value: 'BGN' },
+    { key: 'CZK', value: 'CZK' },
+    { key: 'DKK', value: 'DKK' },
+    { key: 'GBP', value: 'GBP' },
+    { key: 'HUF', value: 'HUF' },
+  ]
 
   return (
     <Layout>
@@ -72,7 +94,9 @@ const Home = () => {
                       <input
                         type="number"
                         id="hs-inline-leading-pricing-select-label"
-                        name="inline-add-on"
+                        name="from"
+                        value={from}
+                        onChange={(e) => setFrom(e.target.value)}
                         className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                         placeholder="From"
                       />
@@ -86,12 +110,16 @@ const Home = () => {
                           Currency
                         </label>
                         <select
+                          value={fromSelect}
+                          onChange={(e) => setFromSelect(e.target.value)}
                           id="hs-inline-leading-select-currency"
                           name="hs-inline-leading-select-currency"
                           className="block w-full border-transparent rounded-lg focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-800">
-                          <option>USD</option>
-                          <option>CAD</option>
-                          <option>EUR</option>
+                          {options.map((option) => (
+                            <option key={option.key} value={option.value}>
+                              {option.key}
+                            </option>
+                          ))}
                         </select>
                       </div>
                     </div>
@@ -101,7 +129,9 @@ const Home = () => {
                     <input
                       type="number"
                       id="hs-inline-leading-pricing-select-label"
-                      name="inline-add-on"
+                      name="to"
+                      value={to}
+                      onChange={(e) => setTo(e.target.value)}
                       className="py-3 px-4 ps-9 pe-20 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                       placeholder="To"
                     />
@@ -115,12 +145,16 @@ const Home = () => {
                         Currency
                       </label>
                       <select
+                        value={toSelect}
+                        onChange={(e) => setToSelect(e.target.value)}
                         id="hs-inline-leading-select-currency"
                         name="hs-inline-leading-select-currency"
                         className="block w-full border-transparent rounded-lg focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-800">
-                        <option>USD</option>
-                        <option>CAD</option>
-                        <option>EUR</option>
+                        {options.map((option) => (
+                          <option key={option.key} value={option.value}>
+                            {option.key}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
