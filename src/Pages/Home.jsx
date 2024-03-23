@@ -34,6 +34,8 @@ const Home = () => {
       })
       .catch((error) => toast.error(error.error))
   }
+    
+
   return (
     <Layout>
       <div className="relative">
