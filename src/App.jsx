@@ -10,6 +10,7 @@ import Signup from './Pages/Signup'
 import Newpass from './Pages/Newpass'
 import Createprof from './Pages/Createprof'
 import News from './Pages/News'
+import Dashboard from './Pages/Dashboard'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/newpass" element={<Newpass />} />
         <Route path="/createprofile" element={<Createprof />} />
         <Route path="/news" element={<News />} />
+        <Route path='/dashboard' element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
   )

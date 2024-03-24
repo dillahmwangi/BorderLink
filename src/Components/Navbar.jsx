@@ -47,15 +47,7 @@ export const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                to="/about"
-                aria-label="Our product"
-                title="Our product"
-                className="font-medium tracking-wide text-gray-100 hover:text-gray-500 transition-colors duration-200 hover:text-teal-accent-400">
-                About us
-              </Link>
-            </li>
+           
             <li>
               <Link
                 to="/info-hub"
@@ -79,6 +71,15 @@ export const Navbar = () => {
                 title="About us"
                 className="font-medium tracking-wide text-gray-100 hover:text-gray-500 transition-colors duration-200 hover:text-teal-accent-400">
                 Document
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/dashboard"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 hover:text-gray-500 transition-colors duration-200 hover:text-teal-accent-400">
+                Admin Dashboard
               </Link>
             </li>
           </ul>

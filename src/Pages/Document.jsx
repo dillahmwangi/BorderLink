@@ -93,7 +93,7 @@ const Document = () => {
                   </td>
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                    className="px-6 py-4  font-medium text-gray-900 dark:text-white whitespace-nowrap">
                     {doc.filename}
                   </th>
                   <td className="px-6 py-4">{doc.createdAt}</td>
@@ -106,12 +106,7 @@ const Document = () => {
                       height={24}
                       className="text-gray-900"
                     />
-                    <Icon
-                      icon="fa-solid:edit"
-                      width={24}
-                      height={24}
-                      className="text-gray-900 mx-2"
-                    />
+                   
                     <Icon
                       icon="mingcute:delete-2-fill"
                       width={24}

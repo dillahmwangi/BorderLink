@@ -1,19 +1,24 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import useCURD from '../hooks/useCRUD'
+import toast from 'react-hot-toast'
+
 
 const forget = () => {
-  const options = [
-    { value: '', text: '--Choose an option--' },
-    { value: 'email', text: 'Email Address' },
-    { value: 'phone', text: 'Phone Number' },
-  ]
+  const [email, setEmail] = useState()
+  const { post } = useCURD()
+  const navigate = useNavigate
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [selected, setSelected] = useState(options[0].value)
 
-  const handleChange = (event) => {
-    console.log(event.target.value)
-    setSelected(event.target.value)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    post('/auth/forgotpassword', {email:email })
+    .then((res) =>{
+      toast.success('Check your email for reset password link')
+      navigate('/newpass')
+
+    }).catch((err)=> toast.error(err))
   }
   console.log('selected', selected)
   return (
@@ -35,38 +40,19 @@ const forget = () => {
           </div>
 
           <div className="mt-5">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="grid gap-y-4">
                 <div>
-                  <label
-                    htmlFor="phonenumber"
-                    className="block text-sm font-bold ml-1 mb-2 dark:text-white">
-                    Select
-                  </label>
+             
                   <div className="relative">
                     <div className="max-w-2xl mx-auto">
-                      <select
-                        id="countries"
-                        value={selected}
-                        onChange={handleChange}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        {options.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.text}
-                          </option>
-                        ))}
-                      </select>
                       <div className="max-w-2xl mx-auto pt-4">
                         <input
-                          type={selected === 'email' ? 'email' : 'hidden'}
+                          type='email'
+                          value={email}
+                          onChange={()=> setEmail(e.target.value)}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Enter Email Address"
-                        />
-
-                        <input
-                          type={selected === 'phone' ? 'text' : 'hidden'}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Enter Phone Number"
                         />
                       </div>
                     </div>
@@ -78,11 +64,11 @@ const forget = () => {
                     you
                   </p>
                 </div>
-                <Link
-                  to="/otp"
+                <button
+                  type='submit'
                   className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded border border-transparent font-semibold bg-gray-900 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
-                  <button type="submit">RESET PASSWORD</button>
-                </Link>
+                  RESET PASSWORD
+                </button>
               </div>
             </form>
           </div>
