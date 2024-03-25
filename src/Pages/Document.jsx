@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Layout from '../Components/Layout'
 import { Icon } from '@iconify/react'
 import Form from './form'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useAPI from '../hooks/useAPI'
 import { QRCodeSVG } from 'qrcode.react'
 import ViewForm from './viewdoc'
@@ -11,7 +11,12 @@ const Document = () => {
   const [openForm, setOpenForm] = useState(false)
   const [openDoc, setOpenDoc] = useState(false)
   const [OpenedDoc, setOpenedDoc] = useState()
-  const [docs] = useAPI(`/doc/documents/user`)
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const user = queryParams.get('user')
+  const [docs] = useAPI(`/doc?user=${user}`)
+  const userString = localStorage.getItem('user')
+  const userid = JSON.parse(userString)
 
   const handleOpenDoc = (data) => {
     setOpenDoc(true)
@@ -131,7 +136,9 @@ const Document = () => {
         </div>
       </div>
       <div className="flex justify-center items-center pb-8">
-        <QRCodeSVG value="http://192.168.0.101:5173/document" />
+        <QRCodeSVG
+          value={`https://border-link.vercel.app/document?user=${userid._id}`}
+        />
       </div>
       {/* <div className="text-center p-6">
         <Link
