@@ -3,7 +3,7 @@ import { setupCache } from 'axios-cache-interceptor'
 
 export const axios = setupCache(
   Axios.create({
-    baseURL: ' https://borderlinkbackend.onrender.com/',
+    baseURL: 'https://border-link.vercel.app/',
   })
 )
 
