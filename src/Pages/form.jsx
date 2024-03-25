@@ -10,7 +10,6 @@ const Form = ({ setOpenForm }) => {
   const [formData, setFormData] = useState({
     name: '',
     documentImage: null,
-    user: '65e67fa03291b74f8144d35c',
   })
 
   const onChange = (e) =>
@@ -37,7 +36,6 @@ const Form = ({ setOpenForm }) => {
     const payload = new FormData()
     payload.append('name', formData.name)
     payload.append('documentImage', formData.documentImage)
-    payload.append('user', formData.user)
 
     post('/doc', payload)
       .then(() => {

@@ -5,13 +5,22 @@ import Form from './form'
 import { Link } from 'react-router-dom'
 import useAPI from '../hooks/useAPI'
 import { QRCodeSVG } from 'qrcode.react'
+import ViewForm from './viewdoc'
 
 const Document = () => {
   const [openForm, setOpenForm] = useState(false)
-  const [docs] = useAPI('/doc/documents/user/65e67fa03291b74f8144d35c')
+  const [openDoc, setOpenDoc] = useState(false)
+  const [OpenedDoc, setOpenedDoc] = useState()
+  const [docs] = useAPI(`/doc/documents/user`)
+
+  const handleOpenDoc = (data) => {
+    setOpenDoc(true)
+    setOpenedDoc(data)
+  }
   return (
     <Layout>
       {openForm ? <Form setOpenForm={setOpenForm} openForm={openForm} /> : null}
+      {openDoc ? <ViewForm setOpenForm={setOpenDoc} doc={OpenedDoc} /> : null}
       <div className="w-full px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg pb-4">
           <div className="flex justify-between">
@@ -101,12 +110,13 @@ const Document = () => {
                   <td className="px-6 py-4">{doc.type}</td>
                   <td className="px-6 py-4 text-right flex">
                     <Icon
+                      onClick={() => handleOpenDoc(doc)}
                       icon="ion:eye"
                       width={24}
                       height={24}
                       className="text-gray-900"
                     />
-                   
+
                     <Icon
                       icon="mingcute:delete-2-fill"
                       width={24}
