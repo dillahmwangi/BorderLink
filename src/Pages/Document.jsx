@@ -137,7 +137,7 @@ const Document = () => {
       </div>
       <div className="flex justify-center items-center pb-8">
         <QRCodeSVG
-          value={`https://border-link.vercel.app/document?user=${userid._id}`}
+          value={`https://border-link.vercel.app/document?user=${userid?._id}`}
         />
       </div>
       {/* <div className="text-center p-6">
