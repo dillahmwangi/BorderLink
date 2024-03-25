@@ -12,7 +12,7 @@ import id from '../assets/id.png'
 
 const Home = () => {
   const [form, setForm] = useState({
-    userName: '',
+    email: '',
     password: '',
   })
   const { processing, signIn } = useAuth()
@@ -179,8 +179,8 @@ const Home = () => {
                         type="text"
                         className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         id="userId"
-                        name="userName"
-                        value={form.userName}
+                        name="email"
+                        value={form.email}
                         onChange={onChange}
                       />
                     </div>
