@@ -14,8 +14,11 @@ const Document = () => {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const user = queryParams.get('user')
-  console.log('users: ', user)
-  const [docs] = useAPI(`/doc?userId=${user}`)
+  let apiUrl = '/doc'
+  if (user) {
+    apiUrl += `?userId=${user}`
+  }
+  const [docs] = useAPI(apiUrl)
   const userString = localStorage.getItem('user')
   const userid = JSON.parse(userString)
 
