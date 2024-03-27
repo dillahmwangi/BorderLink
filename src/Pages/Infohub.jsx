@@ -61,7 +61,7 @@ const Infohub = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium leadi ">
-                      Expert Guidance
+                      Currency Conversion
                     </h4>
                     <p className="mt-2 text-gray-400">
                       We provide cutting-edge technology and innovative
@@ -171,7 +171,7 @@ const Infohub = () => {
                         Trustworthy Partners{' '}
                       </h4>
                       <p className="mt-2 text-gray-400">
-                        We work with reputable insurance providers to ensure you
+                        We work with reputable providers to ensure you
                         get the coverage you can rely on.
                       </p>
                     </div>
