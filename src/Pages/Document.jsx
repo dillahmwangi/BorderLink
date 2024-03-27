@@ -2,16 +2,46 @@ import { useState } from 'react'
 import Layout from '../Components/Layout'
 import { Icon } from '@iconify/react'
 import Form from './form'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useAPI from '../hooks/useAPI'
 import { QRCodeSVG } from 'qrcode.react'
+import ViewForm from './viewdoc'
+import useCURD from '../hooks/useCRUD'
+import toast from 'react-hot-toast'
 
 const Document = () => {
   const [openForm, setOpenForm] = useState(false)
-  const [docs] = useAPI('/doc/documents/user/65e67fa03291b74f8144d35c')
+  const [openDoc, setOpenDoc] = useState(false)
+  const [OpenedDoc, setOpenedDoc] = useState()
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const user = queryParams.get('user')
+  let apiUrl = '/doc'
+  if (user) {
+    apiUrl += `?userId=${user}`
+  }
+  const [docs, { refetch }] = useAPI(apiUrl)
+  const userString = localStorage.getItem('user')
+  const userid = JSON.parse(userString)
+  const { del } = useCURD()
+
+  const handleOpenDoc = (data) => {
+    setOpenDoc(true)
+    setOpenedDoc(data)
+  }
+  const handleDelete = (doc) => {
+    console.log('data: ', doc)
+    del(`/doc/documents/${doc._id}`)
+      .then(() => {
+        toast.success('Document deleted successfully')
+        refetch()
+      })
+      .catch((err) => toast.error(`Failed to delete document ${err}`))
+  }
   return (
     <Layout>
       {openForm ? <Form setOpenForm={setOpenForm} openForm={openForm} /> : null}
+      {openDoc ? <ViewForm setOpenForm={setOpenDoc} doc={OpenedDoc} /> : null}
       <div className="w-full px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg pb-4">
           <div className="flex justify-between">
@@ -101,13 +131,15 @@ const Document = () => {
                   <td className="px-6 py-4">{doc.type}</td>
                   <td className="px-6 py-4 text-right flex">
                     <Icon
+                      onClick={() => handleOpenDoc(doc)}
                       icon="ion:eye"
                       width={24}
                       height={24}
                       className="text-gray-900"
                     />
-                   
+
                     <Icon
+                      onClick={() => handleDelete(doc)}
                       icon="mingcute:delete-2-fill"
                       width={24}
                       height={24}
@@ -121,7 +153,9 @@ const Document = () => {
         </div>
       </div>
       <div className="flex justify-center items-center pb-8">
-        <QRCodeSVG value="http://192.168.0.101:5173/document" />
+        <QRCodeSVG
+          value={`https://border-link.vercel.app/document?user=${userid?._id}`}
+        />
       </div>
       {/* <div className="text-center p-6">
         <Link
