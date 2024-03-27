@@ -21,6 +21,7 @@ const Home = () => {
   const [to, setTo] = useState('')
   const [fromSelect, setFromSelect] = useState('USD')
   const [toSelect, setToSelect] = useState('EUR')
+  
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -412,11 +413,12 @@ const Home = () => {
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
                   <h6 className="mb-2 font-semibold leading-5">
-                    The doctor said
+                    Passport
                   </h6>
                   <p className="text-sm text-gray-900">
-                    Sportacus andrew weatherall goose Refined gentlemen super
-                    mario des lynam alpha trion zap rowsdower.
+                    This is a booklet document that is required when
+                     leaving or entering a country. You can apply for it at 
+                     any passport issuing office or the ecitizen portal.
                   </p>
                 </div>
               </div>
@@ -424,7 +426,7 @@ const Home = () => {
           </Link>
 
           <Link
-            to="https://dis.ecitizen.go.ke/auth/login"
+            to="https://www.hudumakenya.go.ke/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
             <div className="flex flex-col h-full">
@@ -432,18 +434,19 @@ const Home = () => {
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
                   <h6 className="mb-2 font-semibold leading-5">
-                    Skate ipsum dolor
+                    National ID
                   </h6>
                   <p className="text-sm text-gray-900">
-                    Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit.
+                   This card is only issued to citizens of 18yrs and above.
+                   It is a document that proves that you are a citizen of a country
+                   in Kenya it is applied for at huduma center.
                   </p>
                 </div>
               </div>
             </div>
           </Link>
           <Link
-            to="/"
+            to="https://dis.ecitizen.go.ke/auth/login"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
             <div className="flex flex-col h-full">
@@ -455,18 +458,20 @@ const Home = () => {
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
                   <h6 className="mb-2 font-semibold leading-5">
-                    They urge you
+                    Temporary Permit
                   </h6>
                   <p className="text-sm text-gray-900">
-                    A flower in my garden, a mystery in my panties. Heart attack
-                    never stopped old Big Bear.
+                   This works  as a temporary passport for citizens who have not 
+                   acquired the permanent passport. It can only give you access to East-African 
+                   Countries and expires after a year.
+
                   </p>
                 </div>
               </div>
             </div>
           </Link>
           <Link
-            to="/"
+            to="https://portal.health.go.ke/"
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
             <div className="flex flex-col h-full">
@@ -474,11 +479,13 @@ const Home = () => {
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
                   <h6 className="mb-2 font-semibold leading-5">
-                    Baseball ipsum dolor
+                    Covid-19 Certificate
                   </h6>
                   <p className="text-sm text-gray-900">
-                    Bro ipsum dolor sit amet gaper backside single track, manny
-                    Bike epic clipless. Schraeder drop gondy.
+                    This is a must have certificate that can be acquired
+                    through  the Health Portal of Kenya Government. It will help
+                    you get access to various services and facilities across
+                    the country.
                   </p>
                 </div>
               </div>
@@ -575,11 +582,12 @@ const Home = () => {
               </div>
               <div className="relative">
                 <button
-                  data-variant="flat"
+                 
                   className="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
                   type="submit">
                   Send Message
                 </button>
+            
               </div>
             </div>
           </form>
