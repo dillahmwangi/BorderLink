@@ -224,13 +224,13 @@ const Infohub = () => {
                     </div>
                     <div className="ml-4">
                       <h4 className="text-lg font-medium leadi ">
-                        Community Engagement
+                        Customer Engagement
                       </h4>
                       <p className="mt-2 text-gray-400">
-                        We`re not just your insurance agency; we`re your
-                        neighbors. Chayil Insurance takes pride in giving back
-                        to the communities we serve, making a positive impact
-                        beyond insurance.
+                        We`re not just your  agency; we`re your
+                        neighbors. We are concerned obout your safety. That’s why
+                        we regularly meet with our community members to
+                         engange and inform you on what is happening around you.
                       </p>
                     </div>
                   </div>
