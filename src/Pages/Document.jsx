@@ -6,6 +6,8 @@ import { Link, useLocation } from 'react-router-dom'
 import useAPI from '../hooks/useAPI'
 import { QRCodeSVG } from 'qrcode.react'
 import ViewForm from './viewdoc'
+import useCURD from '../hooks/useCRUD'
+import toast from 'react-hot-toast'
 
 const Document = () => {
   const [openForm, setOpenForm] = useState(false)
@@ -18,13 +20,23 @@ const Document = () => {
   if (user) {
     apiUrl += `?userId=${user}`
   }
-  const [docs] = useAPI(apiUrl)
+  const [docs, { refetch }] = useAPI(apiUrl)
   const userString = localStorage.getItem('user')
   const userid = JSON.parse(userString)
+  const { del } = useCURD()
 
   const handleOpenDoc = (data) => {
     setOpenDoc(true)
     setOpenedDoc(data)
+  }
+  const handleDelete = (doc) => {
+    console.log('data: ', doc)
+    del(`/doc/documents/${doc._id}`)
+      .then(() => {
+        toast.success('Document deleted successfully')
+        refetch()
+      })
+      .catch((err) => toast.error(`Failed to delete document ${err}`))
   }
   return (
     <Layout>
@@ -127,6 +139,7 @@ const Document = () => {
                     />
 
                     <Icon
+                      onClick={() => handleDelete(doc)}
                       icon="mingcute:delete-2-fill"
                       width={24}
                       height={24}
