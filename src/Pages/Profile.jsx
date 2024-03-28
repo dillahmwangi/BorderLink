@@ -25,7 +25,7 @@ const Profile = () => {
                     <a
                       href="#"
                       className="bg-gray-900 hover:bg-gray-600 text-white py-2 px-4 rounded">
-                      Resume
+                      Sign Out
                     </a>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ const Profile = () => {
                           Current Address
                         </div>
                         <div className="px-4 py-2">
-                          Beech Creek, PA, Pennsylvania
+                         Nairobi,Kenya
                         </div>
                       </div>
                       <div className="grid grid-cols-2">
@@ -81,7 +81,7 @@ const Profile = () => {
                           Permanant Address
                         </div>
                         <div className="px-4 py-2">
-                          Arlington Heights, IL, Illinois
+                         Nairobi,Kenya
                         </div>
                       </div>
                       <div className="grid grid-cols-2">
