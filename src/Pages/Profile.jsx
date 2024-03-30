@@ -18,9 +18,9 @@ const Profile = () => {
                   <p className="text-gray-700">{profile.country}</p>
                   <div className="mt-6 flex flex-wrap gap-4 justify-center">
                     <a
-                      href="#"
+                      href="/createprofile"
                       className="bg-gray-900 hover:bg-gray-600 text-white py-2 px-4 rounded">
-                      Contact
+                      Edit Profile
                     </a>
                     <a
                       href="#"
