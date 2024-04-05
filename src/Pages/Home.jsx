@@ -21,10 +21,40 @@ const Home = () => {
   const [to, setTo] = useState('')
   const [fromSelect, setFromSelect] = useState('USD')
   const [toSelect, setToSelect] = useState('EUR')
-  
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const [contact, setContact] = useState({
+    username: '',
+    Contactemail: '',
+    subject: '',
+    message: '',
+  })
+  console.log('contact:4 ', contact)
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const onChangeContact = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value })
+  }
+
+  const handleContact = (e) => {
+    e.preventDefault()
+    console.log('contact: ', contact)
+    let data = {
+      phoneNumber: '+254713289622',
+      message: `Hello, I am ${contact?.username}\n email: ${contact.Contactemail}\n subject: ${contact.subject}\n message: ${contact.message}`,
+    }
+
+    console.log('data: ', data)
+
+    post('/sms/contact', data)
+      .then(() => {
+        setIsSubmitted(true)
+        toast.success('Submitted Successfully')
+      })
+      .catch((error) => toast.error(error.error))
   }
 
   const handleSubmit = (e) => {
@@ -267,7 +297,7 @@ const Home = () => {
                     viewBox="0 0 52 52">
                     <polygon
                       strokeWidth="3"
-                      stokelinecap="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
                       points="29 13 14 29 25 29 23 39 38 23 27 23"
@@ -305,7 +335,7 @@ const Home = () => {
                     viewBox="0 0 52 52">
                     <polygon
                       strokeWidth="3"
-                      stokelinecap="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
                       points="29 13 14 29 25 29 23 39 38 23 27 23"
@@ -342,7 +372,7 @@ const Home = () => {
                     viewBox="0 0 52 52">
                     <polygon
                       strokeWidth="3"
-                      stokelinecap="round"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
                       points="29 13 14 29 25 29 23 39 38 23 27 23"
@@ -412,13 +442,11 @@ const Home = () => {
               <img src={passport} className="object-cover w-full h-48" alt="" />
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    Passport
-                  </h6>
+                  <h6 className="mb-2 font-semibold leading-5">Passport</h6>
                   <p className="text-sm text-gray-900">
-                    This is a booklet document that is required when
-                     leaving or entering a country. You can apply for it at 
-                     any passport issuing office or the ecitizen portal.
+                    This is a booklet document that is required when leaving or
+                    entering a country. You can apply for it at any passport
+                    issuing office or the ecitizen portal.
                   </p>
                 </div>
               </div>
@@ -433,13 +461,11 @@ const Home = () => {
               <img src={id} className="object-cover w-full h-48" alt="" />
               <div className="flex-grow border border-t-0 rounded-b">
                 <div className="p-5">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    National ID
-                  </h6>
+                  <h6 className="mb-2 font-semibold leading-5">National ID</h6>
                   <p className="text-sm text-gray-900">
-                   This card is only issued to citizens of 18yrs and above.
-                   It is a document that proves that you are a citizen of a country
-                   in Kenya it is applied for at huduma center.
+                    This card is only issued to citizens of 18yrs and above. It
+                    is a document that proves that you are a citizen of a
+                    country in Kenya it is applied for at huduma center.
                   </p>
                 </div>
               </div>
@@ -461,10 +487,9 @@ const Home = () => {
                     Temporary Permit
                   </h6>
                   <p className="text-sm text-gray-900">
-                   This works  as a temporary passport for citizens who have not 
-                   acquired the permanent passport. It can only give you access to East-African 
-                   Countries and expires after a year.
-
+                    This works as a temporary passport for citizens who have not
+                    acquired the permanent passport. It can only give you access
+                    to East-African Countries and expires after a year.
                   </p>
                 </div>
               </div>
@@ -482,10 +507,10 @@ const Home = () => {
                     Covid-19 Certificate
                   </h6>
                   <p className="text-sm text-gray-900">
-                    This is a must have certificate that can be acquired
-                    through  the Health Portal of Kenya Government. It will help
-                    you get access to various services and facilities across
-                    the country.
+                    This is a must have certificate that can be acquired through
+                    the Health Portal of Kenya Government. It will help you get
+                    access to various services and facilities across the
+                    country.
                   </p>
                 </div>
               </div>
@@ -508,89 +533,101 @@ const Home = () => {
               Get in touch
             </h4>
           </div>
-          <form
-            className="w-full mx-auto flex flex-col justify-center "
-            noValidate>
-            <div className="flex flex-col space-y-5">
-              <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 gap-4">
-                <div className="w-full md:w-1/2 ">
+          {isSubmitted ? (
+            <p> Thank you {contact.name} you message is received.</p>
+          ) : (
+            <form
+              onSubmit={handleContact}
+              className="w-full mx-auto flex flex-col justify-center "
+              noValidate>
+              <div className="flex flex-col space-y-5">
+                <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 gap-4">
+                  <div className="w-full md:w-1/2 ">
+                    <label
+                      htmlFor="name"
+                      className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+                      Your Name (required)
+                    </label>
+                    <input
+                      id="name"
+                      name="username"
+                      type="text"
+                      value={contact.username}
+                      onChange={onChangeContact}
+                      placeholder="Enter Your Name"
+                      className="py-2 px-4 md:px-5 w-full appearance-none border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                      autoComplete="off"
+                      spellCheck="false"
+                      aria-invalid="false"
+                    />
+                  </div>
+                  <div className="w-full md:w-1/2 ltr:md:ml-2.5 rtl:md:mr-2.5 ltr:lg:ml-5 rtl:lg:mr-5 mt-2 md:mt-0">
+                    <label
+                      htmlFor="email"
+                      className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+                      Your Email (required)
+                    </label>
+                    <input
+                      id="email"
+                      name="Contactemail"
+                      type="email"
+                      value={contact.Contactemail}
+                      onChange={onChangeContact}
+                      placeholder="Enter Your Email"
+                      className="py-2 px-4 md:px-5 w-full appearance-none  border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                      autoComplete="off"
+                      spellCheck="false"
+                      aria-invalid="false"
+                    />
+                  </div>
+                </div>
+                <div className="relative">
                   <label
-                    htmlFor="name"
+                    htmlFor="subject"
                     className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-                    Your Name (required)
+                    Subject
                   </label>
                   <input
-                    id="name"
-                    name="name"
+                    id="subject"
+                    name="subject"
                     type="text"
-                    placeholder="Enter Your Name"
+                    value={contact.subject}
+                    onChange={onChangeContact}
+                    placeholder="Enter Your Subject"
                     className="py-2 px-4 md:px-5 w-full appearance-none border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
                     autoComplete="off"
                     spellCheck="false"
                     aria-invalid="false"
                   />
                 </div>
-                <div className="w-full md:w-1/2 ltr:md:ml-2.5 rtl:md:mr-2.5 ltr:lg:ml-5 rtl:lg:mr-5 mt-2 md:mt-0">
+                <div className="relative mb-4">
                   <label
-                    htmlFor="email"
-                    className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-                    Your Email (required)
+                    htmlFor="message"
+                    className="block text-gray-600 font-semibold text-sm leading-none mb-3">
+                    Message
                   </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Enter Your Email"
-                    className="py-2 px-4 md:px-5 w-full appearance-none  border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={contact.message}
+                    onChange={onChangeContact}
+                    className="px-4 py-3 flex items-center w-full appearance-none transition duration-300 ease-in-out text-heading text-sm  focus:ring-0 bg-white border border-gray-300 focus:shadow focus:outline-none focus:border-heading placeholder-body"
                     autoComplete="off"
                     spellCheck="false"
-                    aria-invalid="false"
-                  />
+                    rows={4}
+                    placeholder="Write your message here"></textarea>
+                </div>
+                <div className="relative">
+                  <button
+                    data-variant="flat"
+                    className="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
+                    type="submit">
+                    Send Message
+                  </button>
                 </div>
               </div>
-              <div className="relative">
-                <label
-                  htmlFor="subject"
-                  className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  placeholder="Enter Your Subject"
-                  className="py-2 px-4 md:px-5 w-full appearance-none border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12"
-                  autoComplete="off"
-                  spellCheck="false"
-                  aria-invalid="false"
-                />
-              </div>
-              <div className="relative mb-4">
-                <label
-                  htmlFor="message"
-                  className="block text-gray-600 font-semibold text-sm leading-none mb-3">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="px-4 py-3 flex items-center w-full appearance-none transition duration-300 ease-in-out text-heading text-sm  focus:ring-0 bg-white border border-gray-300 focus:shadow focus:outline-none focus:border-heading placeholder-body"
-                  autoComplete="off"
-                  spellCheck="false"
-                  rows={4}
-                  placeholder="Write your message here"></textarea>
-              </div>
-              <div className="relative">
-                <button
-                 
-                  className="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none  bg-black text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
-                  type="submit">
-                  Send Message
-                </button>
-            
-              </div>
-            </div>
-          </form>
+            </form>
+          )}
         </div>
       </div>
     </Layout>
