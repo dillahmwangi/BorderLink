@@ -202,7 +202,7 @@ const Home = () => {
                       <label
                         htmlFor="lastName"
                         className="inline-block mb-1 font-medium">
-                        ID Number
+                        Email
                       </label>
                       <input
                         placeholder="3026457"
