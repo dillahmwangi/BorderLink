@@ -43,7 +43,7 @@ const Home = () => {
     e.preventDefault()
     console.log('contact: ', contact)
     let data = {
-      phoneNumber: '+254713289622',
+      phoneNumber: '+254790175477',
       message: `Hello, I am ${contact?.username}\n email: ${contact.Contactemail}\n subject: ${contact.subject}\n message: ${contact.message}`,
     }
 
